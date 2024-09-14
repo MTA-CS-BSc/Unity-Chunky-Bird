@@ -1,0 +1,69 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.otf
+*.ttf
+*.bak
+
+# Auto-generated Visual Studio files
+ExportedObj/
+.obj/
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Unity generated files
+Library/
+Temp/
+Build/
+Builds/
+obj/
+Logs/
+MemoryCaptures/
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+# *.pidb.meta
+# *.pdb.meta
+
+# Uncomment if your project uses Unity Cache Server
+# Cache/
+
+# Unity3D generated file on crash reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+
+# Exclude crash reports and temp files
+crash-reports/
+temp/
+
+# Rider specific
+.idea/
+.idea/*.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/.idea_modules.xml
+.idea/*.name
+.idea/.gitignore
+.idea/.asset_data
+.idea/assetDatabasesV2
+.idea/assetDatabases
+.idea/prettier.xml
+.idea/prettier_settings.xml
+.idea/libraries
+.idea/caches
+.idea/.asset_move_marker
+.idea/workspace
+
