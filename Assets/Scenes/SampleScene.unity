@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -781, y: 403}
+  m_AnchoredPosition: {x: -781, y: 285}
   m_SizeDelta: {x: 300.3659, y: 305.6898}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &27300661
@@ -405,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 27300661}
+  gameOverScreen: {fileID: 1800290059}
 --- !u!4 &1068213472
 Transform:
   m_ObjectHideFlags: 0
@@ -695,6 +696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1416754385}
   jumpStrength: 5
+  gameplayScript: {fileID: 0}
+  isAlive: 1
 --- !u!58 &1416754389
 CircleCollider2D:
   m_ObjectHideFlags: 0
