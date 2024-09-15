@@ -11,6 +11,7 @@ public class BirdScript : MonoBehaviour
     public bool isAlive = true;
     private readonly float _yDeathPoint = 12;
     public AudioSource flipSound;
+    public AudioSource hitSound;
     void Start() {
         gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
     }
@@ -26,6 +27,7 @@ public class BirdScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        hitSound.Play();
         isAlive = false;
         gameplayScript.GameOver();
     }
