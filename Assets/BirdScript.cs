@@ -10,15 +10,17 @@ public class BirdScript : MonoBehaviour
     public GameplayScript gameplayScript;
     public bool isAlive = true;
     private readonly float _yDeathPoint = 12;
-    
+    public AudioSource flipSound;
     void Start() {
         gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
     }
 
     void Update() {
-        if (isAlive && Input.GetKeyDown(KeyCode.Space))
+        if (isAlive && Input.GetKeyDown(KeyCode.Space)) {
+            flipSound.Play();
             rigidbody.velocity = Vector2.up * jumpStrength;
-        
+        }
+
         if (isAlive && (transform.position.y < -_yDeathPoint || transform.position.y > _yDeathPoint))
             gameplayScript.GameOver();
     }
