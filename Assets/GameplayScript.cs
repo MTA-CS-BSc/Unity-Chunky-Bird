@@ -12,8 +12,10 @@ public class GameplayScript : MonoBehaviour
     
     [ContextMenu("Increase Score")]
     public void IncreaseScore(int amount) {
-        score += amount;
-        scoreText.text = score.ToString();
+        if (!gameOverScreen.activeSelf) {
+            score += amount;
+            scoreText.text = score.ToString();   
+        }
     }
 
     public void RestartGame() {
