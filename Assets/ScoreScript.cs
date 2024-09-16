@@ -7,7 +7,20 @@ using System;
 [Serializable]
 public class ScoreData
 {
-    public List<int> scores = new List<int>();
+    [Serializable]
+    public class ScoreRecord
+    {
+        public int score;
+        public string name;
+
+        public ScoreRecord(string _name, int _score)
+        {
+            score = _score;
+            name = _name;
+        }
+    }
+    
+    public List<ScoreRecord> scores = new();
 }
 
 public class ScoreScript : MonoBehaviour
@@ -30,8 +43,8 @@ public class ScoreScript : MonoBehaviour
     }
     
     public void AddScore(int score) {
-        scoresData.scores.Add(score);
-        scoresData.scores.Sort((a, b) => b.CompareTo(a));
+        scoresData.scores.Add(new ScoreData.ScoreRecord(PlayerPrefs.GetString("PlayerName"), score));
+        scoresData.scores.Sort((a, b) => b.score.CompareTo(a.score));
         
         if (scoresData.scores.Count > maxScoresCount)
             scoresData.scores.RemoveAt(scoresData.scores.Count - 1);
@@ -40,7 +53,7 @@ public class ScoreScript : MonoBehaviour
     }
 
     public bool IsNewHighScore(int score) {
-        return score > 0 && !scoresData.scores.Exists(x => x == score) &&
-               (scoresData.scores.Count < maxScoresCount || scoresData.scores.Exists(x => x < score));
+        return score > 0 && !scoresData.scores.Exists(x => x.score == score) &&
+               (scoresData.scores.Count < maxScoresCount || scoresData.scores.Exists(x => x.score < score));
     }
 }
