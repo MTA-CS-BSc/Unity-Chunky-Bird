@@ -12,7 +12,7 @@ public class PipeMiddleScript : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer == 6)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bird"))
             gameplayScript.IncreaseScore(1);
     }
 }
