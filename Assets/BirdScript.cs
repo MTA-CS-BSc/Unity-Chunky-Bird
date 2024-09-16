@@ -8,7 +8,7 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D rigidbody;
     public float jumpStrength;
     public GameplayScript gameplayScript;
-    public bool isAlive = true;
+    public bool isAlive;
     private readonly float _yDeathPoint = 12;
     public AudioSource flipSound;
     public AudioSource hitSound;
