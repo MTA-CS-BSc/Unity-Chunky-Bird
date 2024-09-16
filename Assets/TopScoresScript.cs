@@ -18,6 +18,9 @@ public class TopScoresScript : MonoBehaviour
         for (int i = 0; i < scores.Count; i++)
             topScoresStr += $"{i + 1}. {scores[i].name}\nScore: {scores[i].score.ToString()}\n\n";
 
+        if (topScoresStr == "")
+            topScoresStr += "No top scores recorded!";
+        
         topScoresText.text = topScoresStr;
     }
 
