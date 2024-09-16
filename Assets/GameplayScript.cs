@@ -20,6 +20,10 @@ public class GameplayScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void ExitToMainScreen() {
+        SceneManager.LoadScene("LandingScene");
+    }
+
     public void GameOver() {
         if (ScoresManagerScript.Instance.IsNewHighScore(score))
             NewHighScore(score);

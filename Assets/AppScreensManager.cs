@@ -8,4 +8,8 @@ public class AppScreensManager : MonoBehaviour
     public void ShowTopScoresScreen() {
         SceneManager.LoadScene("ScoresScene", LoadSceneMode.Single);
     }
+    
+    public void StartGame() {
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    }
 }
