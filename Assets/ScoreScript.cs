@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 
 [Serializable]
-public class ScoreData
+public class ScoresData
 {
     [Serializable]
     public class ScoreRecord
@@ -27,7 +28,7 @@ public class ScoreScript : MonoBehaviour
 {
     public int maxScoresCount;
     public string filePath;
-    [SerializeField] private ScoreData scoresData;
+    [SerializeField] private ScoresData scoresData;
     
     void Start() {
         filePath = Path.Combine(Application.persistentDataPath, filePath);
@@ -35,7 +36,7 @@ public class ScoreScript : MonoBehaviour
     }
     
     private void LoadScores() {
-        scoresData = File.Exists(filePath) ? JsonUtility.FromJson<ScoreData>(File.ReadAllText(filePath)) : new ScoreData();  
+        scoresData = File.Exists(filePath) ? JsonUtility.FromJson<ScoresData>(File.ReadAllText(filePath)) : new ScoresData();  
     }
 
     private void SaveScores() {
@@ -43,7 +44,7 @@ public class ScoreScript : MonoBehaviour
     }
     
     public void AddScore(int score) {
-        scoresData.scores.Add(new ScoreData.ScoreRecord(PlayerPrefs.GetString("PlayerName"), score));
+        scoresData.scores.Add(new ScoresData.ScoreRecord(PlayerPrefs.GetString("PlayerName"), score));
         scoresData.scores.Sort((a, b) => b.score.CompareTo(a.score));
         
         if (scoresData.scores.Count > maxScoresCount)
