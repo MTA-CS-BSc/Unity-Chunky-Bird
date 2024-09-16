@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TopScoresScript : MonoBehaviour
@@ -15,8 +16,12 @@ public class TopScoresScript : MonoBehaviour
         string topScoresStr = "";
 
         for (int i = 0; i < scores.Count; i++)
-            topScoresStr += $"{i}. {scores[i].name}\n" + $"Score: {scores[i].score.ToString()}\n\n";
+            topScoresStr += $"{i + 1}. {scores[i].name}\nScore: {scores[i].score.ToString()}\n\n";
 
         topScoresText.text = topScoresStr;
+    }
+
+    public void ExitToMainScreen() {
+        SceneManager.LoadScene("LandingScene");
     }
 }
