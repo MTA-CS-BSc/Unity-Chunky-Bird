@@ -13,10 +13,9 @@ public class ScoresManagerScript : MonoBehaviour
             public int score;
             public string name;
 
-            public ScoreRecord(string _name, int _score)
-            {
-                score = _score;
-                name = _name;
+            public ScoreRecord(string name, int score) {
+                this.score = score;
+                this.name = name;
             }
         }
     

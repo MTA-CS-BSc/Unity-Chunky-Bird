@@ -6,7 +6,7 @@ public class PipesSpawnScript : MonoBehaviour
 {
     public PipesPoolScript pipesPool;
     public float spawnRate;
-    private float timer = 0;
+    private float _timer = 0;
     public float heightOffset;
 
     void Start() {
@@ -14,12 +14,12 @@ public class PipesSpawnScript : MonoBehaviour
     }
     
     void Update() {
-        if (timer < spawnRate)
-            timer += Time.deltaTime;
+        if (_timer < spawnRate)
+            _timer += Time.deltaTime;
 
         else {
             SpawnPipes();
-            timer = 0;
+            _timer = 0;
         }
     }
 

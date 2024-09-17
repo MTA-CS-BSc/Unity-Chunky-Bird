@@ -8,7 +8,7 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D rigidbody;
     public float jumpStrength;
     public GameplayScript gameplayScript;
-    public bool isAlive;
+    private bool _isAlive = true;
     private readonly float _yDeathPoint = 12;
     public AudioSource flipSound;
     public AudioSource hitSound;
@@ -18,12 +18,12 @@ public class BirdScript : MonoBehaviour
     }
 
     void Update() {
-        if (isAlive && Input.GetKeyDown(KeyCode.Space)) {
+        if (_isAlive && Input.GetKeyDown(KeyCode.Space)) {
             flipSound.Play();
             rigidbody.velocity = Vector2.up * jumpStrength;
         }
 
-        if (isAlive && (transform.position.y < -_yDeathPoint || transform.position.y > _yDeathPoint)) {
+        if (_isAlive && (transform.position.y < -_yDeathPoint || transform.position.y > _yDeathPoint)) {
             outOfBoundsSound.Play();
             EndGame();
         }
@@ -35,7 +35,7 @@ public class BirdScript : MonoBehaviour
     }
 
     private void EndGame() {
-        isAlive = false;
+        _isAlive = false;
         gameplayScript.GameOver();
     }
 } 

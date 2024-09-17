@@ -30,8 +30,7 @@ public class PipesPoolScript : MonoBehaviour
         return Instantiate(pipesPrefab);
     }
 
-    public void ReturnPipe(GameObject pipe)
-    {
+    public void ReturnPipe(GameObject pipe) {
         pipe.SetActive(false);
         _queue.Enqueue(pipe);
     }

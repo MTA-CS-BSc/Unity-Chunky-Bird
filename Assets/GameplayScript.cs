@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameplayScript : MonoBehaviour
 {
-    public int score;
+    private int _score;
     public Text scoreText;
     public GameObject gameOverScreen;
     public GameObject highScoreScreen;
@@ -13,8 +13,8 @@ public class GameplayScript : MonoBehaviour
     [ContextMenu("Increase Score")]
     public void IncreaseScore(int amount) {
         if (!gameOverScreen.activeSelf) {
-            score += amount;
-            scoreText.text = score.ToString();   
+            _score += amount;
+            scoreText.text = _score.ToString();   
         }
     }
 
@@ -27,8 +27,8 @@ public class GameplayScript : MonoBehaviour
     }
 
     public void GameOver() {
-        if (ScoresManagerScript.Instance.IsNewHighScore(score))
-            NewHighScore(score);
+        if (ScoresManagerScript.Instance.IsNewHighScore(_score))
+            NewHighScore(_score);
         
         else if (!highScoreScreen.activeSelf)
             gameOverScreen.SetActive(true);

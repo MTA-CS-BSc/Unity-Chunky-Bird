@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class PipeMiddleScript : MonoBehaviour
 {
-    public GameplayScript gameplayScript;
+    private GameplayScript _gameplayScript;
     
     void Start() {
-        gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
+        _gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bird"))
-            gameplayScript.IncreaseScore(1);
+            _gameplayScript.IncreaseScore(1);
     }
 }
