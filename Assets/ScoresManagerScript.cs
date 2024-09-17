@@ -62,7 +62,7 @@ public class ScoresManagerScript : MonoBehaviour
     }
 
     public bool IsNewHighScore(int score) {
-        return score > 0 && !scoresData.scores.Exists(x => x.score == score) &&
+        return score > 0 &&
                (scoresData.scores.Count < MaxScoresCount || scoresData.scores.Exists(x => x.score < score));
     }
     

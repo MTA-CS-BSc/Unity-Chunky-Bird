@@ -7,6 +7,8 @@ public class GameplayScript : MonoBehaviour
     public int score;
     public Text scoreText;
     public GameObject gameOverScreen;
+    public GameObject highScoreScreen;
+    public GameObject endGameActions;
 
     [ContextMenu("Increase Score")]
     public void IncreaseScore(int amount) {
@@ -28,10 +30,14 @@ public class GameplayScript : MonoBehaviour
         if (ScoresManagerScript.Instance.IsNewHighScore(score))
             NewHighScore(score);
         
-        gameOverScreen.SetActive(true);
+        else
+            gameOverScreen.SetActive(true);
+
+        endGameActions.SetActive(true);
     }
+    
     private void NewHighScore(int newScore) {
-        // highScoreScreen.SetActive(true);
-       ScoresManagerScript.Instance.AddScore(newScore);
+        highScoreScreen.SetActive(true);
+        ScoresManagerScript.Instance.AddScore(newScore);
     }
 }
