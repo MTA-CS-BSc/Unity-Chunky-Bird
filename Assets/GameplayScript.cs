@@ -30,7 +30,7 @@ public class GameplayScript : MonoBehaviour
         if (ScoresManagerScript.Instance.IsNewHighScore(score))
             NewHighScore(score);
         
-        else
+        else if (!highScoreScreen.activeSelf)
             gameOverScreen.SetActive(true);
 
         endGameActions.SetActive(true);
