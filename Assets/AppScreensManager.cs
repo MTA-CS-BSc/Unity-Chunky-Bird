@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class AppScreensManager : MonoBehaviour
 {
     public void ShowTopScoresScreen() {
-        SceneManager.LoadScene("ScoresScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("ScoresScene");
     }
     
-    public void StartGame() {
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    public void StartGame() { 
+        SceneManager.LoadScene("PlayerNameScene");
     }
 
     public void ExitGame() {
