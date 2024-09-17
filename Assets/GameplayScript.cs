@@ -10,7 +10,6 @@ public class GameplayScript : MonoBehaviour
     public GameObject highScoreScreen;
     public GameObject endGameActions;
 
-    [ContextMenu("Increase Score")]
     public void IncreaseScore(int amount) {
         if (!gameOverScreen.activeSelf) {
             _score += amount;
