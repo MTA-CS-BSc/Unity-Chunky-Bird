@@ -10,27 +10,25 @@ public class PipesPoolScript : MonoBehaviour
     void Start() {
         _queue = new Queue<GameObject>();
 
-        for (int i = 0; i < poolSize; i++)
-        {
+        for (int i = 0; i < poolSize; i++) {
             GameObject pipe = Instantiate(pipesPrefab);
             pipe.SetActive(false);
             _queue.Enqueue(pipe);
         }
     }
 
-    public GameObject GetPipes()
-    {
+    public GameObject GetPipes() {
         if (_queue.Count > 0) {
-            GameObject pipe = _queue.Dequeue();
-            pipe.SetActive(true);
-            return pipe;
+            GameObject pipes = _queue.Dequeue();
+            pipes.SetActive(true);
+            return pipes;
         }
         
         return Instantiate(pipesPrefab);
     }
 
-    public void ReturnPipe(GameObject pipe) {
-        pipe.SetActive(false);
-        _queue.Enqueue(pipe);
+    public void ReturnPipes(GameObject pipes) {
+        pipes.SetActive(false);
+        _queue.Enqueue(pipes);
     }
 }
