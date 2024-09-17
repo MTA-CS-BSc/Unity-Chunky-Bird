@@ -7,6 +7,7 @@ TagManager:
   - Gameplay
   - Scores
   - PipesPool
+  - CloudsPool
   layers:
   - Default
   - TransparentFX

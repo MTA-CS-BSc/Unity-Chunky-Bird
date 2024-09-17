@@ -4,28 +4,30 @@ using UnityEngine;
 
 public class CloudsSpawnScript : MonoBehaviour
 {
-    public GameObject clouds;
+    public CloudsPoolScript cloudsPool;
     public float spawnRate;
-    private float timer = 0;
+    private float _timer = 0;
     public float heightOffset;
 
     void Start() {
-        SpawnClouds();
-    }
-
-    void Update() {
-        if (timer < spawnRate)
-            timer += Time.deltaTime;
-
-        else {
-            timer = 0;
-            SpawnClouds();
-        }
+        cloudsPool = GameObject.FindGameObjectWithTag("CloudsPool").GetComponent<CloudsPoolScript>();
     }
     
-    private void SpawnClouds() {
+    void Update() {
+        if (_timer < spawnRate)
+            _timer += Time.deltaTime;
+
+        else {
+            SpawnClouds();
+            _timer = 0;
+        }
+    }
+
+    void SpawnClouds() {
+        GameObject clouds = cloudsPool.GetClouds();
         float lowest = transform.position.y - heightOffset;
-        float highest = transform.position.y + heightOffset;
-        Instantiate(clouds, new Vector3(transform.position.x, Random.Range(lowest, highest), 0), transform.rotation);
+        float highest = transform.position.y + heightOffset;   
+        
+        clouds.transform.position = new Vector3(transform.position.x, Random.Range(lowest, highest), 0);
     }
 }
