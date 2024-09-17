@@ -12,4 +12,12 @@ public class AppScreensManager : MonoBehaviour
     public void StartGame() {
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
+
+    public void ExitGame() {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        
+        Application.Quit();
+    }
 }

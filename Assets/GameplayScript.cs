@@ -32,6 +32,6 @@ public class GameplayScript : MonoBehaviour
     }
     private void NewHighScore(int newScore) {
         // highScoreScreen.SetActive(true);
-        ScoresManagerScript.Instance.AddScore(newScore);
+       ScoresManagerScript.Instance.AddScore(newScore);
     }
 }
