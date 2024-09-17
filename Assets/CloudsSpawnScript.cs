@@ -9,12 +9,10 @@ public class CloudsSpawnScript : MonoBehaviour
     private float timer = 0;
     public float heightOffset;
 
-    // Start is called before the first frame update
     void Start() {
         SpawnClouds();
     }
 
-    // Update is called once per frame
     void Update() {
         if (timer < spawnRate)
             timer += Time.deltaTime;

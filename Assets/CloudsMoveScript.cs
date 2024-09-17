@@ -7,8 +7,6 @@ public class CloudsMoveScript : MonoBehaviour
     public float moveSpeed;
     public float cloudsXDeathPoint;
     
-    void Start() { }
-
     void Update() {
         if (transform.position.x < cloudsXDeathPoint)
             Destroy(gameObject);

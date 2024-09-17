@@ -7,8 +7,7 @@ public class PipesPoolScript : MonoBehaviour
     public int poolSize;
     private Queue<GameObject> _queue;
 
-    void Start()
-    {
+    void Start() {
         _queue = new Queue<GameObject>();
 
         for (int i = 0; i < poolSize; i++)
