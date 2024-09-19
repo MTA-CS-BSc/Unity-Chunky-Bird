@@ -3,7 +3,6 @@ using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T: MonoBehaviour
 {
-    private static T _instance;
     public static T Instance { get; private set; }
     
     // Self implemented optimized code
@@ -18,9 +17,8 @@ public abstract class Singleton<T> : MonoBehaviour where T: MonoBehaviour
     }
     
     protected virtual void OnDestroy() {
-        if (_instance == this)
-            _instance = null;
-        
+        if (Instance == this)
+            Instance = null;
     }
     
     // Code from class
