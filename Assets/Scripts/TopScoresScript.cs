@@ -5,23 +5,25 @@ using UnityEngine.UI;
 
 public class TopScoresScript : MonoBehaviour
 {
-    public Text topScoresText;
+    public Transform contentPanel;
+    public GameObject scoreItemPrefab;
+    private List<ScoresManager.ScoresData.ScoreRecord> _topScores;
     
     void Start() {
         LoadTopScores();
+        PopulateScoresList();
     }
 
     void LoadTopScores() {
-        List<ScoresManager.ScoresData.ScoreRecord> scores = ScoresManager.Instance.GetTopScores();
-        string topScoresStr = "";
-
-        for (int i = 0; i < scores.Count; i++)
-            topScoresStr += $"{i + 1}. {scores[i].name}\nScore: {scores[i].score.ToString()}\n\n";
-
-        if (topScoresStr == "")
-            topScoresStr += "No top scores recorded!";
-        
-        topScoresText.text = topScoresStr;
+        _topScores = ScoresManager.Instance.GetTopScores();
+    }
+    
+    void PopulateScoresList() {
+        for (int i = 0; i < _topScores.Count; i++) {
+            GameObject scoreItem = Instantiate(scoreItemPrefab, contentPanel);
+            Text scoreText = scoreItem.GetComponent<Text>();
+            scoreText.text = $"{i + 1}. {_topScores[i].name}\nScore: {_topScores[i].score.ToString()}";
+        }
     }
 
     public void ExitToMainScreen() {
