@@ -5,8 +5,7 @@ public class GenericObjectPool<T> where T : MonoBehaviour
 {
     private ObjectPool<T> _objectPool;
 
-    public GenericObjectPool(T prefab, int capacity = 10, int maxCapacity = 500)
-    {
+    public GenericObjectPool(T prefab, int capacity = 10, int maxCapacity = 500) {
         _objectPool = new ObjectPool<T>(
             createFunc: () =>
             {
@@ -24,16 +23,12 @@ public class GenericObjectPool<T> where T : MonoBehaviour
         
         var poolObjects = new T[capacity];
         for (var i = 0; i < capacity; i++)
-        {
             poolObjects[i] = _objectPool.Get();
-        }
+        
         for (var i = 0; i < capacity; i++)
-        {
             _objectPool.Release(poolObjects[i]);
-        }
     }
 
     public T Get() => _objectPool.Get();
-    
     public void Release(T obj) => _objectPool.Release(obj);
 }
