@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PipeMoveScript : MonoBehaviour
+public class Pipes : MonoBehaviour
 {
     public float moveSpeed;
     public float pipesXDeathPoint;

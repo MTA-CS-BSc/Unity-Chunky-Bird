@@ -336,98 +336,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28051415}
   m_CullTransparentMesh: 1
---- !u!1 &276392524
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 276392526}
-  - component: {fileID: 276392525}
-  m_Layer: 0
-  m_Name: Pipes Pool
-  m_TagString: PipesPool
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &276392525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276392524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c71ebaf924152c4ca921335ca818e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pipesPrefab: {fileID: 4057187604122613796, guid: 07a248459836011ee8305dc68037bea1, type: 3}
-  poolSize: 5
---- !u!4 &276392526
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276392524}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &450215849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 450215850}
-  - component: {fileID: 450215851}
-  m_Layer: 0
-  m_Name: Clouds Pool
-  m_TagString: CloudsPool
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &450215850
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450215849}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &450215851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450215849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97398bafd6f25d4dab8eb062975b68e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cloudsPrefab: {fileID: 4771228552384038482, guid: c0ff76eb5342589bf86d54f67046d754, type: 3}
-  poolSize: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3f6c653facb417daf935ee37556e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudsPool: {fileID: 0}
+  cloudsPrefab: {fileID: 7218999459444316913, guid: c0ff76eb5342589bf86d54f67046d754, type: 3}
   spawnRate: 3
   heightOffset: 10
 --- !u!4 &870704263
@@ -1839,7 +1747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7445ae6658fe19299e8f8387961197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipesPool: {fileID: 0}
+  pipesPrefab: {fileID: 4110145182674864650, guid: 07a248459836011ee8305dc68037bea1, type: 3}
   spawnRate: 3
   heightOffset: 4
 --- !u!4 &1900655124
@@ -1938,8 +1846,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 870704263}
   - {fileID: 1900655124}
-  - {fileID: 276392526}
-  - {fileID: 450215850}
   - {fileID: 1416754387}
   - {fileID: 1803732705}
   - {fileID: 1273703303}

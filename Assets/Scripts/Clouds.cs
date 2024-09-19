@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudsMoveScript : MonoBehaviour
+public class Clouds : MonoBehaviour
 {
     public float moveSpeed;
     public float cloudsXDeathPoint;

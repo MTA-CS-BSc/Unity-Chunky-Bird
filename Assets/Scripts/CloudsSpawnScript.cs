@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CloudsSpawnScript : MonoBehaviour
 {
-    public CloudsPoolScript cloudsPool;
+    public Clouds cloudsPrefab;
+    private GenericObjectPool<Clouds> _cloudsPool;
     public float spawnRate;
     private float _timer = 0;
     public float heightOffset;
 
     void Start() {
-        cloudsPool = GameObject.FindGameObjectWithTag("CloudsPool").GetComponent<CloudsPoolScript>();
+        _cloudsPool = new GenericObjectPool<Clouds>(cloudsPrefab);
     }
     
     void Update() {
@@ -24,7 +25,7 @@ public class CloudsSpawnScript : MonoBehaviour
     }
 
     void SpawnClouds() {
-        GameObject clouds = cloudsPool.GetClouds();
+        Clouds clouds = _cloudsPool.Get();
         float lowest = transform.position.y - heightOffset;
         float highest = transform.position.y + heightOffset;   
         

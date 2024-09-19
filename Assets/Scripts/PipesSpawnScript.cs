@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PipesSpawnScript : MonoBehaviour 
 {
-    public PipesPoolScript pipesPool;
+    public Pipes pipesPrefab;
+    private GenericObjectPool<Pipes> _pipesPool;
     public float spawnRate;
     private float _timer = 0;
     public float heightOffset;
 
     void Start() {
-        pipesPool = GameObject.FindGameObjectWithTag("PipesPool").GetComponent<PipesPoolScript>();
+        _pipesPool = new GenericObjectPool<Pipes>(pipesPrefab);
     }
     
     void Update() {
@@ -24,7 +25,7 @@ public class PipesSpawnScript : MonoBehaviour
     }
 
     void SpawnPipes() {
-        GameObject pipes = pipesPool.GetPipes();
+        Pipes pipes = _pipesPool.Get();
         float lowest = transform.position.y - heightOffset;
         float highest = transform.position.y + heightOffset;   
         
