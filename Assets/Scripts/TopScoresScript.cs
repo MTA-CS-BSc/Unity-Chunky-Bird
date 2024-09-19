@@ -12,7 +12,7 @@ public class TopScoresScript : MonoBehaviour
     }
 
     void LoadTopScores() {
-        List<ScoresManagerScript.ScoresData.ScoreRecord> scores = ScoresManagerScript.Instance.GetTopScores();
+        List<ScoresManager.ScoresData.ScoreRecord> scores = ScoresManager.Instance.GetTopScores();
         string topScoresStr = "";
 
         for (int i = 0; i < scores.Count; i++)

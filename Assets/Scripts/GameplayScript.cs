@@ -26,7 +26,7 @@ public class GameplayScript : MonoBehaviour
     }
 
     public void GameOver() {
-        if (ScoresManagerScript.Instance.IsNewHighScore(_score))
+        if (ScoresManager.Instance.IsNewHighScore(_score))
             NewHighScore(_score);
         
         else if (!highScoreScreen.activeSelf)
@@ -37,6 +37,6 @@ public class GameplayScript : MonoBehaviour
     
     private void NewHighScore(int newScore) {
         highScoreScreen.SetActive(true);
-        ScoresManagerScript.Instance.AddScore(newScore);
+        ScoresManager.Instance.AddScore(newScore);
     }
 }

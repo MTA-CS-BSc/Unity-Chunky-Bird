@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class ScoresManagerScript : MonoBehaviour
+public class ScoresManager : Singleton<ScoresManager>
 {
     [Serializable]
     public class ScoresData {
@@ -21,23 +21,16 @@ public class ScoresManagerScript : MonoBehaviour
     
         public List<ScoreRecord> scores = new();
     }
-    public static ScoresManagerScript Instance { get; private set; }
     
-    private const int MaxScoresCount = 5;
+    private readonly int _maxScoresCount = 5;
     private string _filePath;
+    
     [SerializeField] private ScoresData scoresData;
-    
-    void Awake() {
+
+    new void Awake() {
+        base.Awake();
         _filePath = Path.Combine(Application.persistentDataPath, "scores.json");
-        if (Instance == null) {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        
-        else if (Instance != this)
-            Destroy(gameObject);
     }
-    
     void Start() {
         LoadScores();
     }
@@ -54,7 +47,7 @@ public class ScoresManagerScript : MonoBehaviour
         scoresData.scores.Add(new ScoresData.ScoreRecord(PlayerPrefs.GetString("PlayerName"), score));
         scoresData.scores.Sort((a, b) => b.score.CompareTo(a.score));
         
-        if (scoresData.scores.Count > MaxScoresCount)
+        if (scoresData.scores.Count > _maxScoresCount)
             scoresData.scores.RemoveAt(scoresData.scores.Count - 1);
         
         SaveScores();
@@ -62,7 +55,7 @@ public class ScoresManagerScript : MonoBehaviour
 
     public bool IsNewHighScore(int score) {
         return score > 0 &&
-               (scoresData.scores.Count < MaxScoresCount || scoresData.scores.Exists(x => x.score < score));
+               (scoresData.scores.Count < _maxScoresCount || scoresData.scores.Exists(x => x.score < score));
     }
     
     public List<ScoresData.ScoreRecord> GetTopScores() {
