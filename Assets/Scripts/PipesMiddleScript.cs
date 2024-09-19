@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PipeMiddleScript : MonoBehaviour
+public class PipesMiddleScript : MonoBehaviour
 {
     private GameplayScript _gameplayScript;
     

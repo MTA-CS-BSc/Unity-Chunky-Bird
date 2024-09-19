@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdScript : MonoBehaviour
+public class Bird : MonoBehaviour
 {
     public Rigidbody2D rigidbody;
     public float jumpStrength;
