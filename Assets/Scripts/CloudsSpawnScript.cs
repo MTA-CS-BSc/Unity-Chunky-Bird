@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script for spawning clouds
+/// </summary>
 public class CloudsSpawnScript : MonoBehaviour
 {
     public Clouds cloudsPrefab;

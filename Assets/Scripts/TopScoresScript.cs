@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Script for the top scores screen
+/// </summary>
 public class TopScoresScript : MonoBehaviour
 {
     public Transform contentPanel;

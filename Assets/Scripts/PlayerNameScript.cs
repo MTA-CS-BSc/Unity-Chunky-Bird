@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+/// <summary>
+/// Script for entering the player's name before the game starts
+/// </summary>
 public class PlayerNameScript : MonoBehaviour
 {
     public Text playerNameText;

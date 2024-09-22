@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+/// <summary>
+/// Handles the operations against the scores file
+/// </summary>
 public class ScoresManager : Singleton<ScoresManager>
 {
     [Serializable]

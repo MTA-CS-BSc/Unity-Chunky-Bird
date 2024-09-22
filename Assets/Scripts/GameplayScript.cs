@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Script for maintaining the gameplay itself 
+/// </summary>
 public class GameplayScript : MonoBehaviour
 {
     private int _score;

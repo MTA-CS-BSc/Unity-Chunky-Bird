@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A class that maintains the bird instance
+/// </summary>
 public class Bird : MonoBehaviour
 {
     public Rigidbody2D rigidbody;

@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles the collision for the middle of pipes
+/// </summary>
 public class PipesMiddleScript : MonoBehaviour
 {
     private GameplayScript _gameplayScript;

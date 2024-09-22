@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Script for the landing screen
+/// </summary>
 public class AppScreensManager : MonoBehaviour
 {
     public void ShowTopScoresScreen() {
