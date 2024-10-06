@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class GenericObjectPool<T> where T : MonoBehaviour
+public class AppObjectPool
 {
-    private ObjectPool<T> _objectPool;
+    private ObjectPool<GameObject> _objectPool;
 
-    public GenericObjectPool(T prefab, int capacity = 10, int maxCapacity = 500) {
-        _objectPool = new ObjectPool<T>(
+    public AppObjectPool(GameObject prefab, int capacity = 10, int maxCapacity = 500) {
+        _objectPool = new ObjectPool<GameObject>(
             createFunc: () =>
             {
                 var newObject = Object.Instantiate(prefab);
@@ -21,7 +21,7 @@ public class GenericObjectPool<T> where T : MonoBehaviour
             collectionCheck: false
         );
         
-        var poolObjects = new T[capacity];
+        var poolObjects = new GameObject[capacity];
         for (var i = 0; i < capacity; i++)
             poolObjects[i] = _objectPool.Get();
         
@@ -29,6 +29,6 @@ public class GenericObjectPool<T> where T : MonoBehaviour
             _objectPool.Release(poolObjects[i]);
     }
 
-    public T Get() => _objectPool.Get();
-    public void Release(T obj) => _objectPool.Release(obj);
+    public GameObject Get() => _objectPool.Get();
+    public void Release(GameObject obj) => _objectPool.Release(obj);
 }

@@ -428,6 +428,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &526775225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 526775226}
+  m_Layer: 0
+  m_Name: Spawn Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &526775226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526775225}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 386.26465, y: 328.39365, z: 2.123249}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662639308
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3f6c653facb417daf935ee37556e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudsPrefab: {fileID: 7218999459444316913, guid: c0ff76eb5342589bf86d54f67046d754, type: 3}
+  prefab: {fileID: 4771228552384038482, guid: c0ff76eb5342589bf86d54f67046d754, type: 3}
   spawnRate: 3
   heightOffset: 10
 --- !u!4 &870704263
@@ -1747,7 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7445ae6658fe19299e8f8387961197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipesPrefab: {fileID: 4110145182674864650, guid: 07a248459836011ee8305dc68037bea1, type: 3}
+  prefab: {fileID: 4057187604122613796, guid: 07a248459836011ee8305dc68037bea1, type: 3}
   spawnRate: 3
   heightOffset: 4
 --- !u!4 &1900655124
@@ -1844,9 +1875,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1068213472}
+  - {fileID: 526775226}
   - {fileID: 870704263}
   - {fileID: 1900655124}
   - {fileID: 1416754387}
   - {fileID: 1803732705}
   - {fileID: 1273703303}
-  - {fileID: 1068213472}

@@ -33,6 +33,7 @@ public class Bird : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        // TODO: Handle collision cases
         hitSound.Play();
         EndGame();
     }
