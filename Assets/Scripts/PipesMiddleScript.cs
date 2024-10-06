@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Handles the collision for the middle of pipes
 /// </summary>
-public class PipesMiddleScript : MonoBehaviour
+public class PipesMiddleScript : CollisionItem
 {
     private GameplayScript _gameplayScript;
     
@@ -14,8 +14,7 @@ public class PipesMiddleScript : MonoBehaviour
         _gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Bird"))
-            _gameplayScript.IncreaseScore(1);
+    protected override void OnHit(GameObject other) {
+        _gameplayScript.IncreaseScore(1);
     }
 }
