@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 151800347}
   - component: {fileID: 151800348}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Inivisble Reward Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6861767481269981714, guid: 160aa48b91560bbe2bd200fb0d9093fb, type: 3}
-  spawnRate: 30
+  spawnRate: 5
   heightOffset: 7
 --- !u!1 &519420028
 GameObject:
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 1416754392}
   m_Layer: 6
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

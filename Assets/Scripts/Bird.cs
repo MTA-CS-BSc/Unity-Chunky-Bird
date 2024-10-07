@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// A class that maintains the bird instance
@@ -33,16 +34,26 @@ public class Bird : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        // TODO: Handle collision cases
+        if (other.gameObject.CompareTag("Pipes")) HandlePipesCollision();
+        else if (other.gameObject.CompareTag("InvisibleReward")) HandleInvisibleRewardCollision();
+    }
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Pipes")) {
-            hitSound.Play();
-            EndGame();   
-        }
+    private void HandleInvisibleRewardCollision() {
+        // invisibleSound.Play();
+        MakeInvisible();
+    }
+    
+    private void HandlePipesCollision() {
+        hitSound.Play();
+        EndGame();
     }
 
     private void EndGame() {
         _isAlive = false;
         gameplayScript.GameOver();
+    }
+
+    private void MakeInvisible(int seconds = 7) {
+        GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0f);
     }
 } 
