@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnedItem : MonoBehaviour
+public abstract class SpawnedItem : MonoBehaviour
 {
     public float moveSpeed;
     private readonly float _xDeathPoint = -45;

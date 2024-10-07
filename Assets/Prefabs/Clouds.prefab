@@ -815,7 +815,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  cloudsXDeathPoint: -45
 --- !u!1 &6522795295945833595
 GameObject:
   m_ObjectHideFlags: 0

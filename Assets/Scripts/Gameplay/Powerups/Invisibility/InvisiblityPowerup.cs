@@ -2,5 +2,5 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvisibleReward : SpawnedItem
+public class InvisiblityPowerup : SpawnedItem
 { }
