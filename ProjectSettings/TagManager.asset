@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gameplay
-  - Scores
-  - PipesPool
-  - CloudsPool
+  - Bird
+  - Pipes
+  - InvisibleReward
   layers:
   - Default
   - TransparentFX
@@ -17,7 +17,7 @@ TagManager:
   - UI
   - Bird
   - Pipes
-  - Rewards
+  - 
   - 
   - 
   - 
