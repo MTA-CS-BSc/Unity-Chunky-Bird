@@ -11,7 +11,7 @@ public class Bird : MonoBehaviour
 {
     public Rigidbody2D rigidbody;
     public float jumpStrength;
-    public GameplayScript gameplayScript;
+    private GameplayScript _gameplayScript;
     private bool _isAlive = true;
     private readonly float _yDeathPoint = 12;
     public AudioSource flipSound;
@@ -22,7 +22,7 @@ public class Bird : MonoBehaviour
     
     void Start() {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
+        _gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
     }
 
     void Update() {
@@ -38,8 +38,8 @@ public class Bird : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (!_isInvisible && other.gameObject.CompareTag("Pipes")) HandlePipesCollision();
         if (other.gameObject.CompareTag("InvisibleReward")) HandleInvisibleRewardCollision(other);
+        if (!_isInvisible && other.gameObject.CompareTag("Pipes")) HandlePipesCollision();
     }
 
     private void HandleInvisibleRewardCollision(Collision2D reward) {
@@ -55,7 +55,7 @@ public class Bird : MonoBehaviour
 
     private void KillBird() {
         _isAlive = false;
-        gameplayScript.GameOver();
+        _gameplayScript.GameOver();
     }
 
     private void MakeInvisible(int seconds = 7) {
@@ -76,7 +76,7 @@ public class Bird : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         
         GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
-        _isInvisible = false;
         SetPipesColliders(true);
+        _isInvisible = false;
     }
 } 
