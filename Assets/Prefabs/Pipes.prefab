@@ -90,7 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7146307d40bc84e9aaf949e497dbc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplayScript: {fileID: 0}
 --- !u!1 &3884263191456765940
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +101,7 @@ GameObject:
   - component: {fileID: 1468053801440593340}
   - component: {fileID: 760590236329973272}
   - component: {fileID: 2322294546847295880}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bottom Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,13 +246,13 @@ Transform:
   m_GameObject: {fileID: 4057187604122613796}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49721935, y: -1.15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7520074259752307661}
-  - {fileID: 1468053801440593340}
   - {fileID: 8393154400979408282}
+  - {fileID: 1468053801440593340}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4110145182674864650
@@ -281,7 +280,7 @@ GameObject:
   - component: {fileID: 7520074259752307661}
   - component: {fileID: 6395878043329359593}
   - component: {fileID: 203160663184154687}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Top Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}

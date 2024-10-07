@@ -33,8 +33,12 @@ public class Bird : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        hitSound.Play();
-        EndGame();
+        // TODO: Handle collision cases
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Pipes")) {
+            hitSound.Play();
+            EndGame();   
+        }
     }
 
     private void EndGame() {
