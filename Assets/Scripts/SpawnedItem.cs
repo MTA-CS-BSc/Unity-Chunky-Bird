@@ -7,7 +7,7 @@ public class SpawnedItem : MonoBehaviour
 
     void Update() {
         if (transform.position.x < _xDeathPoint)
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         
         transform.position += Vector3.left * (moveSpeed * Time.deltaTime);    
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Handles the collision for the middle of pipes
 /// </summary>
-public class PipesMiddleScript : CollisionItem
+public class PipesMiddleScript : SpawnedItem
 {
     private GameplayScript _gameplayScript;
     
@@ -14,7 +14,8 @@ public class PipesMiddleScript : CollisionItem
         _gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
     }
 
-    protected override void OnHit(GameObject other) {
-        _gameplayScript.IncreaseScore(1);
+    protected void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Bird"))
+            _gameplayScript.IncreaseScore(1);
     }
 }
