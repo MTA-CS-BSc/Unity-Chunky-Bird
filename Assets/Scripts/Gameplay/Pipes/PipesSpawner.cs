@@ -5,5 +5,11 @@ using UnityEngine;
 /// <summary>
 /// Script for spawning pipes
 /// </summary>
-public class PipesSpawner : Spawner 
-{ }
+public class PipesSpawner : Spawner
+{
+    protected override GameObject Spawn() {
+        GameObject objectToSpawn = base.Spawn();
+        objectToSpawn.AddComponent<PipeOscillation>();
+        return objectToSpawn;
+    }
+}

@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Vector2 = UnityEngine.Vector2;
 
 /// <summary>
 /// A class that maintains the bird instance
@@ -66,23 +68,23 @@ public class Bird : MonoBehaviour
         _gameplayScript.GameOver();
     }
 
-    private void MakeInvisible(int seconds = 7) {
-        spriteRenderer.material.color = new Color(1f, 1f, 1f, .5f);
-        SetPipesColliders(false);
-        _isInvisible = true;
-        StartCoroutine(ReturnToNormal(seconds));
-    }
-
-    private void SetPipesColliders(bool activated) {
+    private void SetPipesCollidersActive(bool activated) {
         foreach (BoxCollider2D boxCollider in _pipesColliders)
             boxCollider.enabled = activated;
     }
     
-    private IEnumerator ReturnToNormal(int seconds) {
+    private void MakeInvisible(int seconds = 7) {
+        spriteRenderer.material.color = new Color(1f, 1f, 1f, .5f);
+        SetPipesCollidersActive(false);
+        _isInvisible = true;
+        StartCoroutine(MakeVisible(seconds));
+    }
+    
+    private IEnumerator MakeVisible(int seconds) {
         yield return new WaitForSeconds(seconds);
         
         spriteRenderer.material.color = new Color(1f, 1f, 1f, 1f);
-        SetPipesColliders(true);
+        SetPipesCollidersActive(true);
         _isInvisible = false;
     }
 } 
