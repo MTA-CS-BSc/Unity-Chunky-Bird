@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,10 +21,16 @@ public class Bird : MonoBehaviour
     public AudioSource outOfBoundsSound;
     public AudioSource invisibleSound;
     private bool _isInvisible = false;
+    private BoxCollider2D[] _pipesColliders;
+    public SpriteRenderer spriteRenderer;
     
     void Start() {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        
         _gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
+        
+        GameObject[] allPipes = GameObject.FindGameObjectsWithTag("Pipes");
+        _pipesColliders = allPipes.Select(pipe => pipe.GetComponent<BoxCollider2D>()).ToArray();
     }
 
     void Update() {
@@ -59,23 +67,21 @@ public class Bird : MonoBehaviour
     }
 
     private void MakeInvisible(int seconds = 7) {
-        GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, .5f);
+        spriteRenderer.material.color = new Color(1f, 1f, 1f, .5f);
         SetPipesColliders(false);
         _isInvisible = true;
         StartCoroutine(ReturnToNormal(seconds));
     }
 
     private void SetPipesColliders(bool activated) {
-        GameObject[] allPipes = GameObject.FindGameObjectsWithTag("Pipes");
-        
-        foreach (GameObject pipe in allPipes)
-            pipe.GetComponent<BoxCollider2D>().enabled = activated;
+        foreach (BoxCollider2D boxCollider in _pipesColliders)
+            boxCollider.enabled = activated;
     }
     
     private IEnumerator ReturnToNormal(int seconds) {
         yield return new WaitForSeconds(seconds);
         
-        GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+        spriteRenderer.material.color = new Color(1f, 1f, 1f, 1f);
         SetPipesColliders(true);
         _isInvisible = false;
     }

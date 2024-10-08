@@ -1011,6 +1011,7 @@ MonoBehaviour:
   hitSound: {fileID: 1416754391}
   outOfBoundsSound: {fileID: 1416754392}
   invisibleSound: {fileID: 1416754393}
+  spriteRenderer: {fileID: 1416754386}
 --- !u!58 &1416754389
 CircleCollider2D:
   m_ObjectHideFlags: 0
