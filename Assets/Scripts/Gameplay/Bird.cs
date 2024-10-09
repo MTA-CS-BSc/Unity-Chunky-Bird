@@ -38,10 +38,11 @@ public class Bird : MonoBehaviour
             rigidbody.velocity = Vector2.up * jumpStrength;
         }
 
-        if (_isAlive && (transform.position.y < -_yDeathPoint || transform.position.y > _yDeathPoint || transform.position.x < -_xDeathPoint || transform.position.x > _xDeathPoint)) {
-            outOfBoundsSound.Play();
-            KillBird();
-        }
+        if (!_isAlive || (!(transform.position.y < -_yDeathPoint) && !(transform.position.y > _yDeathPoint) &&
+                          !(transform.position.x < -_xDeathPoint) && !(transform.position.x > _xDeathPoint))) return;
+
+        outOfBoundsSound.Play();
+        KillBird();
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
