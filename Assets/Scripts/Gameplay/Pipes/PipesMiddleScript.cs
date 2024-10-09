@@ -16,6 +16,6 @@ public class PipesMiddleScript : SpawnedItem
 
     protected void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Bird"))
-            _gameplayScript.IncreaseScore(1);
+            _gameplayScript.IncreaseScore();
     }
 }

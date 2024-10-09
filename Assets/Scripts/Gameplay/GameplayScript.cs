@@ -12,10 +12,11 @@ public class GameplayScript : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject highScoreScreen;
     public GameObject endGameActions;
-
-    public void IncreaseScore(int amount) {
+    private int _passMiddlePoints = 1;
+    
+    public void IncreaseScore() {
         if (!gameOverScreen.activeSelf) {
-            _score += amount;
+            _score += _passMiddlePoints;
             scoreText.text = _score.ToString();   
         }
     }
@@ -42,4 +43,6 @@ public class GameplayScript : MonoBehaviour
         highScoreScreen.SetActive(true);
         ScoresManager.Instance.AddScore(newScore);
     }
+    
+    public void SetPassMiddlePoints(int value) { _passMiddlePoints = value; }
 }
