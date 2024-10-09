@@ -7,7 +7,8 @@ TagManager:
   - Gameplay
   - Bird
   - Pipes
-  - InvisibleReward
+  - DoubleScore
+  - Invisibility
   layers:
   - Default
   - TransparentFX
