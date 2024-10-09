@@ -18,21 +18,18 @@ public class Bird : MonoBehaviour
     private GameplayScript _gameplayScript;
     private bool _isAlive = true;
     private readonly float _yDeathPoint = 12;
+    private readonly float _xDeathPoint = 20;
     public AudioSource flipSound;
     public AudioSource hitSound;
     public AudioSource outOfBoundsSound;
     public AudioSource invisibleSound;
     private bool _isInvisible = false;
-    private BoxCollider2D[] _pipesColliders;
     public SpriteRenderer spriteRenderer;
     
     void Start() {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         
         _gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
-        
-        GameObject[] allPipes = GameObject.FindGameObjectsWithTag("Pipes");
-        _pipesColliders = allPipes.Select(pipe => pipe.GetComponent<BoxCollider2D>()).ToArray();
     }
 
     void Update() {
@@ -41,7 +38,7 @@ public class Bird : MonoBehaviour
             rigidbody.velocity = Vector2.up * jumpStrength;
         }
 
-        if (_isAlive && (transform.position.y < -_yDeathPoint || transform.position.y > _yDeathPoint)) {
+        if (_isAlive && (transform.position.y < -_yDeathPoint || transform.position.y > _yDeathPoint || transform.position.x < -_xDeathPoint || transform.position.x > _xDeathPoint)) {
             outOfBoundsSound.Play();
             KillBird();
         }
@@ -67,15 +64,10 @@ public class Bird : MonoBehaviour
         _isAlive = false;
         _gameplayScript.GameOver();
     }
-
-    private void SetPipesCollidersActive(bool activated) {
-        foreach (BoxCollider2D boxCollider in _pipesColliders)
-            boxCollider.enabled = activated;
-    }
     
     private void MakeInvisible(int seconds = 7) {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bird"), LayerMask.NameToLayer("Pipes"), true);
         spriteRenderer.material.color = new Color(1f, 1f, 1f, .5f);
-        SetPipesCollidersActive(false);
         _isInvisible = true;
         StartCoroutine(MakeVisible(seconds));
     }
@@ -84,7 +76,7 @@ public class Bird : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         
         spriteRenderer.material.color = new Color(1f, 1f, 1f, 1f);
-        SetPipesCollidersActive(true);
         _isInvisible = false;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bird"), LayerMask.NameToLayer("Pipes"), false);
     }
 } 
