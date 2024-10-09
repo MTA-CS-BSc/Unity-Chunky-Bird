@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Script for the landing screen
 /// </summary>
-public class AppScreensManager : MonoBehaviour
+public class LandingScript : MonoBehaviour
 {
     public void ShowTopScoresScreen() {
         SceneManager.LoadScene("ScoresScene");
