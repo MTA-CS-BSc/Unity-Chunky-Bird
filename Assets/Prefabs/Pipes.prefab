@@ -231,7 +231,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5978116592644679065}
   - component: {fileID: 4110145182674864650}
-  - component: {fileID: 6556236490206732323}
   m_Layer: 0
   m_Name: Pipes
   m_TagString: Untagged
@@ -270,18 +269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
---- !u!114 &6556236490206732323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4057187604122613796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e54471d21a61f5eaeb5141c8619c79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4254571311858885700
 GameObject:
   m_ObjectHideFlags: 0

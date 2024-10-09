@@ -5,7 +5,7 @@ public class AppObjectPool
 {
     private ObjectPool<GameObject> _objectPool;
 
-    public AppObjectPool(GameObject prefab, int capacity = 5, int maxCapacity = 10) {
+    public AppObjectPool(GameObject prefab, int capacity = 10, int maxCapacity = 100) {
         _objectPool = new ObjectPool<GameObject>(
             createFunc: () =>
             {
