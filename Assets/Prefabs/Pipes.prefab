@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 1468053801440593340}
   - component: {fileID: 760590236329973272}
   - component: {fileID: 2322294546847295880}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Bottom Pipe
   m_TagString: Pipes
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 7520074259752307661}
   - component: {fileID: 6395878043329359593}
   - component: {fileID: 203160663184154687}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Top Pipe
   m_TagString: Pipes
   m_Icon: {fileID: 0}
