@@ -95,6 +95,6 @@ public class Bird : MonoBehaviour
     
     private IEnumerator MakeNormalPoints(int seconds) {
         yield return new WaitForSeconds(seconds);
-        _gameplayScript.SetPassMiddlePoints(2);
+        _gameplayScript.SetPassMiddlePoints(1);
     }
 } 
