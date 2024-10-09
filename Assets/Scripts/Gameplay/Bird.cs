@@ -1,8 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Vector2 = UnityEngine.Vector2;
 
 /// <summary>
 /// A class that maintains the bird instance
@@ -14,14 +18,17 @@ public class Bird : MonoBehaviour
     private GameplayScript _gameplayScript;
     private bool _isAlive = true;
     private readonly float _yDeathPoint = 12;
+    private readonly float _xDeathPoint = 20;
     public AudioSource flipSound;
     public AudioSource hitSound;
     public AudioSource outOfBoundsSound;
     public AudioSource invisibleSound;
     private bool _isInvisible = false;
+    public SpriteRenderer spriteRenderer;
     
     void Start() {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        
         _gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
     }
 
@@ -31,10 +38,11 @@ public class Bird : MonoBehaviour
             rigidbody.velocity = Vector2.up * jumpStrength;
         }
 
-        if (_isAlive && (transform.position.y < -_yDeathPoint || transform.position.y > _yDeathPoint)) {
-            outOfBoundsSound.Play();
-            KillBird();
-        }
+        if (!_isAlive || (!(transform.position.y < -_yDeathPoint) && !(transform.position.y > _yDeathPoint) &&
+                          !(transform.position.x < -_xDeathPoint) && !(transform.position.x > _xDeathPoint))) return;
+
+        outOfBoundsSound.Play();
+        KillBird();
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -57,26 +65,19 @@ public class Bird : MonoBehaviour
         _isAlive = false;
         _gameplayScript.GameOver();
     }
-
+    
     private void MakeInvisible(int seconds = 7) {
-        GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, .5f);
-        SetPipesColliders(false);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bird"), LayerMask.NameToLayer("Pipes"), true);
+        spriteRenderer.material.color = new Color(1f, 1f, 1f, .5f);
         _isInvisible = true;
-        StartCoroutine(ReturnToNormal(seconds));
-    }
-
-    private void SetPipesColliders(bool activated) {
-        GameObject[] allPipes = GameObject.FindGameObjectsWithTag("Pipes");
-        
-        foreach (GameObject pipe in allPipes)
-            pipe.GetComponent<BoxCollider2D>().enabled = activated;
+        StartCoroutine(MakeVisible(seconds));
     }
     
-    private IEnumerator ReturnToNormal(int seconds) {
+    private IEnumerator MakeVisible(int seconds) {
         yield return new WaitForSeconds(seconds);
         
-        GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
-        SetPipesColliders(true);
+        spriteRenderer.material.color = new Color(1f, 1f, 1f, 1f);
         _isInvisible = false;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Bird"), LayerMask.NameToLayer("Pipes"), false);
     }
 } 

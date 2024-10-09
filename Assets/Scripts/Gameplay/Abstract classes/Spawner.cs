@@ -24,15 +24,17 @@ public abstract class Spawner : MonoBehaviour
         }
     }
 
-    GameObject GetFromPool() {
+    protected GameObject GetFromPool() {
         return _pool.Get();
     }
 
-    void Spawn() {
+    protected virtual GameObject Spawn() {
         GameObject objectToSpawn = GetFromPool();
         float lowest = transform.position.y - heightOffset;
         float highest = transform.position.y + heightOffset;   
         
         objectToSpawn.transform.position = new Vector3(transform.position.x, Random.Range(lowest, highest), 0);
+
+        return objectToSpawn;
     }
 }
