@@ -24,14 +24,12 @@ public abstract class Spawner : MonoBehaviour
         }
     }
 
-    protected GameObject GetFromPool() {
-        return _pool.Get();
-    }
+    private GameObject GetFromPool() => _pool.Get();
 
     protected virtual GameObject Spawn() {
         GameObject objectToSpawn = GetFromPool();
-        float lowest = transform.position.y - heightOffset;
-        float highest = transform.position.y + heightOffset;   
+        var lowest = transform.position.y - heightOffset;
+        var highest = transform.position.y + heightOffset;   
         
         objectToSpawn.transform.position = new Vector3(transform.position.x, Random.Range(lowest, highest), 0);
 

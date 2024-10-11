@@ -25,9 +25,7 @@ public class GameplayScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void ExitToMainScreen() {
-        SceneManager.LoadScene("LandingScene");
-    }
+    public void ExitToMainScreen() => AppSettings.ExitToMainScreen();
 
     public void GameOver() {
         if (ScoresManager.Instance.IsNewHighScore(_score))

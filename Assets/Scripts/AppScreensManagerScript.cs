@@ -14,13 +14,11 @@ public class AppScreensManagerScript : MonoBehaviour
         DontDestroyOnLoad(themeSongComponent.gameObject);
     }
 
-    public void ShowTopScoresScreen() {
-        SceneManager.LoadScene("ScoresScene");
-    }
+    public void ShowTopScoresScreen() => SceneManager.LoadScene("ScoresScene");
     
-    public void StartGame() { 
-        SceneManager.LoadScene("PlayerNameScene");
-    }
+    public void ShowSettingsScreen() => SceneManager.LoadScene("SettingsScene");
+    
+    public void StartGame() => SceneManager.LoadScene("PlayerNameScene");
 
     public void ExitGame() {
         #if UNITY_EDITOR

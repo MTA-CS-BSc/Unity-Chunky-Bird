@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 1050076917}
   - component: {fileID: 1050076918}
   m_Layer: 0
-  m_Name: Top Scores
+  m_Name: Top Scores Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
