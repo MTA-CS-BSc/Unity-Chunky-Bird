@@ -16,7 +16,7 @@ public class PipesSpawner : Spawner
     protected override GameObject Spawn() {
         GameObject objectToSpawn = base.Spawn();
         
-        if (AppSettings.gameDifficulty == Difficulty.Hard &&
+        if (AppSettings.difficulty == Difficulty.Hard &&
                 _random.NextFloat() < .5f &&
                     !objectToSpawn.GetComponent<PipeOscillation>())
             objectToSpawn.AddComponent<PipeOscillation>();
