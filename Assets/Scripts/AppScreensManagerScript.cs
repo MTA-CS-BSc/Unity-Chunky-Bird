@@ -9,11 +9,6 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class AppScreensManagerScript : MonoBehaviour
 {
-    private void Start() {
-        var themeSongComponent = GetComponent<AudioSource>();
-        DontDestroyOnLoad(themeSongComponent.gameObject);
-    }
-
     public void ShowTopScoresScreen() => SceneManager.LoadScene("ScoresScene");
     
     public void ShowSettingsScreen() => SceneManager.LoadScene("SettingsScene");

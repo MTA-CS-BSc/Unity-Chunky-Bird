@@ -7,7 +7,7 @@ public enum Difficulty {
 
 public static class AppSettings {
     public static Difficulty gameDifficulty = Difficulty.Normal;
-    public static bool isMusicOn = true;
+    public static bool isThemeMusicOn = true;
 
     public static void ExitToMainScreen() => SceneManager.LoadScene("LandingScene");
 }
