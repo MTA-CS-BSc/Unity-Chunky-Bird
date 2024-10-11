@@ -15,8 +15,6 @@ public class PlayerNameScript : MonoBehaviour
         PlayerPrefs.SetString("PlayerName", playerNameText.text);
         SceneManager.LoadScene("GameScene");
     }
-	
-	public void ExitToMainScreen() {
-		SceneManager.LoadScene("LandingScene");
-    }
+
+    public void ExitToMainScreen() => AppSettings.ExitToMainScreen();
 }

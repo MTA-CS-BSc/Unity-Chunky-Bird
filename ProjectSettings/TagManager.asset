@@ -9,6 +9,7 @@ TagManager:
   - Pipes
   - DoubleScore
   - Invisibility
+  - MusicManager
   layers:
   - Default
   - TransparentFX

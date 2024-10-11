@@ -17,9 +17,7 @@ public class TopScoresScript : MonoBehaviour
         PopulateScoresList();
     }
 
-    void LoadTopScores() {
-        _topScores = ScoresManager.Instance.GetTopScores();
-    }
+    void LoadTopScores() => _topScores = ScoresManager.Instance.GetTopScores();
     
     void PopulateScoresList() {
         for (int i = 0; i < _topScores.Count; i++) {
@@ -29,7 +27,5 @@ public class TopScoresScript : MonoBehaviour
         }
     }
 
-    public void ExitToMainScreen() {
-        SceneManager.LoadScene("LandingScene");
-    }
+    public void ExitToMainScreen() => AppSettings.ExitToMainScreen();
 }

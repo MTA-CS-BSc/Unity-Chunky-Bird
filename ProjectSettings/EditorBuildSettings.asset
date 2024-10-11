@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LandingScene.unity
     guid: 042bb33e6798b6a4caf41de3d0ba665a
   - enabled: 1
+    path: Assets/Scenes/SettingsScene.unity
+    guid: 20d20b15a8e20473b90d7dc059ce9388
+  - enabled: 1
     path: Assets/Scenes/PlayerNameScene.unity
     guid: 4344704999e25fbffb6c2d4f6d0c5962
   - enabled: 1

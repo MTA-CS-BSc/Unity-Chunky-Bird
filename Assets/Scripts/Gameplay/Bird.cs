@@ -19,29 +19,26 @@ public class Bird : MonoBehaviour
     private bool _isAlive = true;
     private readonly float _yDeathPoint = 12;
     private readonly float _xDeathPoint = 20;
-    public AudioSource flipSound;
-    public AudioSource hitSound;
-    public AudioSource outOfBoundsSound;
-    public AudioSource invisibleSound;
-    public AudioSource doublePointsSound;
     private bool _isInvisible = false;
     public SpriteRenderer spriteRenderer;
+    private MusicManager _musicManager;
     
     void Start() {
+        _musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
         rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         _gameplayScript = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayScript>();
     }
 
     void Update() {
         if (_isAlive && Input.GetKeyDown(KeyCode.Space)) {
-            flipSound.Play();
+            _musicManager.MakeFlipSound();
             rigidbody.velocity = Vector2.up * jumpStrength;
         }
 
         if (!_isAlive || (!(transform.position.y < -_yDeathPoint) && !(transform.position.y > _yDeathPoint) &&
                           !(transform.position.x < -_xDeathPoint) && !(transform.position.x > _xDeathPoint))) return;
 
-        outOfBoundsSound.Play();
+        _musicManager.MakeOutOfBoundsSound();
         KillBird();
     }
 
@@ -52,19 +49,19 @@ public class Bird : MonoBehaviour
     }
 
     private void HandleDoublePointsCollision(Collision2D reward) {
-        doublePointsSound.Play();
+        _musicManager.MakeDoublePointsSound();
         MakeDoublePoints();
         reward.gameObject.SetActive(false);
     }
     
     private void HandleInvisibilityCollision(Collision2D reward) {
-        invisibleSound.Play();
+        _musicManager.MakeInvisibleSound();
         MakeInvisible();
         reward.gameObject.SetActive(false);
     }
     
     private void HandlePipesCollision() {
-        hitSound.Play();
+        _musicManager.MakeHitSound();
         KillBird();
     }
 

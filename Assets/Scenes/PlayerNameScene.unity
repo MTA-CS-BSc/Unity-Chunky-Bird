@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 723916474}
   - component: {fileID: 723916475}
   m_Layer: 0
-  m_Name: Name Screen
+  m_Name: Player Name Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
